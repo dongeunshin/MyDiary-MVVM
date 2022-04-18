@@ -18,6 +18,7 @@ class HomeViewModel {
     lazy var allDiary = BehaviorRelay(value: diary) //BehaviorSubject<Results<Diary>>(value: diary)
     lazy var filteredDiary = diary.filter({$0.isFav == false})
     lazy var filteredDiaryList = BehaviorRelay(value: filteredDiary)
+    
     func reload(){
         allDiary.accept(diary)
     }
