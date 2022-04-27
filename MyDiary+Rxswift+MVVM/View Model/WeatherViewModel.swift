@@ -17,7 +17,6 @@ class WeatherViewModel{
     
     func reload() {
         service.fetchWeather { data in
-//            print(data.description)
             self.todayWeather.accept(data.description)
         }
     }

@@ -44,13 +44,13 @@ class WriteViewController: UIViewController {
         setupBinding()
     }
     
-    func setupDate() {
+    private func setupDate() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
         let now = formatter.string(from: Date())
         dateLabel.text = now
     }
-    func setupBinding() {
+    private func setupBinding() {
         weatherViewModel.todayWeather
             .bind(to: weatherLabel.rx.text)
             .disposed(by: disposeBag)

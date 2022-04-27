@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    func setupBinding(){
+    private func setupBinding(){
         viewModel.allDiary
             .bind(to: homeTableView.rx.items(cellIdentifier: "HomeTableViewCell", cellType: HomeTableViewCell.self)) { index, item, cell in
                 cell.dateLabel.text = item.date

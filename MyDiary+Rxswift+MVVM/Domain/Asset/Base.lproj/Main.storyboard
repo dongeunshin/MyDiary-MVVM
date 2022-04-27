@@ -326,7 +326,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-nF-y91">
-                                                    <rect key="frame" x="54" y="29" width="340" height="49"/>
+                                                    <rect key="frame" x="54" y="28.5" width="340" height="49"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du3-VP-EbC">
                                                             <rect key="frame" x="0.0" y="0.0" width="340" height="20.5"/>
@@ -370,6 +370,7 @@
                     <navigationItem key="navigationItem" id="YFv-V1-5af"/>
                     <connections>
                         <outlet property="favTableView" destination="dx7-pI-e62" id="igK-hF-CKW"/>
+                        <segue destination="A11-V2-Nek" kind="show" identifier="showDetail" id="EpC-Yd-JbK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9o-AB-Pfu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -377,6 +378,9 @@
             <point key="canvasLocation" x="1273.913043478261" y="379.6875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="B9W-YK-1cC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="magazine.fill" catalog="system" width="113" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>

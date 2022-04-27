@@ -19,8 +19,6 @@ class WeatherRepository {
                 let decoder = JSONDecoder()
                 do{
                     let decodedData = try decoder.decode(WeatherModel.self, from: data)
-//                    print("repository")
-//                    print(decodedData)
                     return completion(decodedData)
                 }catch{
                     print("ERROR: decode fail")

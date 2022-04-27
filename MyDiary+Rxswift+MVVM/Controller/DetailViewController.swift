@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
         setData()
     }
     
-    func setData(){
+    private func setData(){
         if let index = self.indexpath?.row {
             let d = diary[index]
             dateLabel.text =  d.date

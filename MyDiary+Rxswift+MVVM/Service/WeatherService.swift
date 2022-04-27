@@ -13,9 +13,7 @@ class WeatherService{
     
     func fetchWeather(completion: @escaping (CurrentWeatherModel)->()){
         repository.fetchWeather { [weak self] entity in
-//            print("service")
-//            print(entity.weather.first?.main)
-            let model = CurrentWeatherModel(description: entity.weather.first?.description ?? "cantfind")
+            let model = CurrentWeatherModel(description: entity.weather.first?.description ?? "Unkown")
             self?.currentWeatherModel = model
             completion(model)
         }
