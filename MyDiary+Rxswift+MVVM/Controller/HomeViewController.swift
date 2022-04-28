@@ -12,6 +12,7 @@ import RxCocoa
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = HomeViewModel()
     var disposeBag = DisposeBag()
 
@@ -24,14 +25,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     
     // MARK: - Lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.reload()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
     }
-    override func viewWillAppear(_ animated: Bool) {
-//        homeTableView.reloadData() // 왜 안됐을까??
-        viewModel.reload()
-    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "showDetail" {
             let vc = segue.destination as? DetailViewController
@@ -63,7 +65,9 @@ class HomeViewController: UIViewController {
         homeTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                self.performSegue(withIdentifier: "showDetail", sender: self)
+//                self.performSegue(withIdentifier: "showDetail", sender: self)
+                
+//                self.show(DetailViewController(), sender: self)
             }).disposed(by: disposeBag)
     }
 }

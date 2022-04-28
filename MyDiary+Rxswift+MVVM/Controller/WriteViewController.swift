@@ -25,7 +25,7 @@ class WriteViewController: UIViewController {
             self.present(alert, animated: false)
         }else{
             guard let date = dateLabel.text, let weather = weatherLabel.text, let title = titleTextField.text, let content = diaryTextView.text else { return }
-            let newDiary = Diary(date: date, title: title, content: content, weather: weather) //, img:  NSData(data: UIImage(systemName: "pencil")!.pngData()!) as Data
+            let newDiary = Diary(date: date, title: title, content: content, weather: weather, isFav: false, isLocked: false) //, img:  NSData(data: UIImage(systemName: "pencil")!.pngData()!) as Data
             weatherViewModel.save(diary: newDiary)
             self.navigationController?.popViewController(animated: false)
         }

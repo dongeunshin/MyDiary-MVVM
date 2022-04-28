@@ -22,6 +22,22 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var starBttn: UIButton!
     
+    @IBOutlet weak var editBttn: UIButton!
+    @IBAction func editBttnAction(_ sender: Any) {
+//        let vc = EditViewController()
+//        vc.dateLabel = dateLabel
+//        vc.indexpath = indexpath
+//        self.performSegue(withIdentifier: "showEdit", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "showEdit" {
+            let vc = segue.destination as? EditViewController
+            vc?.indexpath = indexpath
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setData()
+    }
     override func viewDidLoad() {
         setData()
     }
