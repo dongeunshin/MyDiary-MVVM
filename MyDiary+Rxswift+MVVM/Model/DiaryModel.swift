@@ -26,6 +26,7 @@ class Diary : Object {
         self.title = title
         self.content = content
         self.weather = weather
+        self.isFav = isFav
         self.isLocked = isLocked
 //        self.img = img
     }

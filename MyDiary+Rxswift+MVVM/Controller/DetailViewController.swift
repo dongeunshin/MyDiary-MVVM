@@ -20,14 +20,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var lockBttn: UIButton!
     @IBOutlet weak var starBttn: UIButton!
     
     @IBOutlet weak var editBttn: UIButton!
     @IBAction func editBttnAction(_ sender: Any) {
-//        let vc = EditViewController()
-//        vc.dateLabel = dateLabel
-//        vc.indexpath = indexpath
-//        self.performSegue(withIdentifier: "showEdit", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "showEdit" {
@@ -49,6 +46,8 @@ class DetailViewController: UIViewController {
             titleLabel.text = d.title
             weatherLabel.text = d.weather
             contentLabel.text = d.content
+            starBttn.isSelected = d.isFav
+            lockBttn.isSelected = d.isLocked
         }
     }
 }
