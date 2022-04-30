@@ -23,6 +23,7 @@
 		7C56E0ED27B2B6C900DD44F0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56E0EC27B2B6C900DD44F0 /* RxCocoa */; };
 		7C56E0EF27B2B6C900DD44F0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56E0EE27B2B6C900DD44F0 /* RxRelay */; };
 		7C56E0F127B2B6C900DD44F0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56E0F027B2B6C900DD44F0 /* RxSwift */; };
+		7C7290A9281D14B4009D0B5F /* PassWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7290A8281D14B4009D0B5F /* PassWordModel.swift */; };
 		7CCB8C0B27B8D7AB00C44815 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 7CCB8C0A27B8D7AB00C44815 /* Differentiator */; };
 		7CCB8C0D27B8D7AB00C44815 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 7CCB8C0C27B8D7AB00C44815 /* RxDataSources */; };
 		7CF9B35227DDEE98005FB800 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9B35127DDEE98005FB800 /* DetailViewController.swift */; };
@@ -50,6 +51,7 @@
 		7C159A9D27B2704A0056F186 /* FavDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavDiaryViewController.swift; sourceTree = "<group>"; };
 		7C159AAA27B283EC0056F186 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		7C471F61280D56BF0006D39C /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
+		7C7290A8281D14B4009D0B5F /* PassWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassWordModel.swift; sourceTree = "<group>"; };
 		7CF9B35127DDEE98005FB800 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7CFB4A2227B6378300EDE622 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		7CFB4A2427B638ED00EDE622 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				7C159AAA27B283EC0056F186 /* DiaryModel.swift */,
+				7C7290A8281D14B4009D0B5F /* PassWordModel.swift */,
 				7CFB4A2B27B64C3E00EDE622 /* CurrentWeatherModel.swift */,
 			);
 			path = Model;
@@ -284,6 +287,7 @@
 				7C159A8227B25E080056F186 /* AppDelegate.swift in Sources */,
 				7CFB4A2A27B6484C00EDE622 /* WeatherService.swift in Sources */,
 				7C159AAB27B283EC0056F186 /* DiaryModel.swift in Sources */,
+				7C7290A9281D14B4009D0B5F /* PassWordModel.swift in Sources */,
 				7CFB4A2E27B64D9500EDE622 /* WeatherViewModel.swift in Sources */,
 				7C159A9E27B2704A0056F186 /* FavDiaryViewController.swift in Sources */,
 				7CFB4A2C27B64C3E00EDE622 /* CurrentWeatherModel.swift in Sources */,
