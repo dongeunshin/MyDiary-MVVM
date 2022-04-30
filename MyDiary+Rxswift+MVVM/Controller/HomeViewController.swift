@@ -12,11 +12,13 @@ import RxCocoa
 
 class HomeViewController: UIViewController {
     
+    var keyword = ""
+        
+    let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = HomeViewModel()
     var disposeBag = DisposeBag()
 
-    // TODO: - 필요없는 부분 삭제
     // MARK: - Realm
     let realm = try! Realm()
     lazy var diary = self.realm.objects(Diary.self)
@@ -38,13 +40,21 @@ class HomeViewController: UIViewController {
         } catch {
             print("Error: \(error)")
         }
+        
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "어떤 메모를 찾으시나요?"
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.showsSearchResultsController = true
+        searchController.searchBar.showsCancelButton = false
+        self.definesPresentationContext = true
+        self.navigationItem.titleView = searchController.searchBar
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "showDetail" {
             let vc = segue.destination as? DetailViewController
             if let indexpath = self.homeTableView.indexPathForSelectedRow {
-                print("passed")
                 vc?.indexpath = indexpath
             }
         }
@@ -58,7 +68,7 @@ class HomeViewController: UIViewController {
                 cell.img.image = item.isLocked ? UIImage(systemName: "lock")! : UIImage(systemName: "lock.open")!
             }
             .disposed(by: disposeBag)
-        
+
         viewModel.reload()
         
         homeTableView.rx.itemDeleted
@@ -73,7 +83,6 @@ class HomeViewController: UIViewController {
                 guard let self = self else { return }
                 guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController else { return }
                 vc.indexpath = indexPath
-                print("selected")
 
                 if self.diary[indexPath.row].isLocked {
                     let alert = UIAlertController(title: "비밀메모 입니다", message: "비밀번호를 입력해 주세요", preferredStyle: .alert)
@@ -85,7 +94,7 @@ class HomeViewController: UIViewController {
                         if self.password[0].password == passwordInput{
                             self.navigationController?.pushViewController(vc, animated: true)
                         }else{
-                            let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "비밀번호는 1234", preferredStyle: .alert)
+                            let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "", preferredStyle: .alert)
                             let retry = UIAlertAction(title: "OK", style: .cancel)
                             alert2.addAction(retry)
                             self.present(alert2, animated: true, completion: nil)
@@ -96,9 +105,23 @@ class HomeViewController: UIViewController {
                     alert.addAction(submit)
                     self.present(alert, animated: true, completion: nil)
                 }else {
-//                    self.children.first?.navigationController?.pushViewController(vc, animated: true)
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }).disposed(by: disposeBag)
+    }
+}
+
+extension HomeViewController: UISearchResultsUpdating{
+    func willPresentSearchController(_ searchController: UISearchController) {
+        searchController.searchResultsController?.view.isHidden = false
+
+    }
+    func updateSearchResults(for searchController: UISearchController) {
+        if ((searchController.searchBar.text?.isEmpty) == true){
+            self.homeTableView.reloadData()
+        } else if let searchText = searchController.searchBar.text {
+//            viewModel.searchMemo(queryValue: searchText)
+//            keyword = searchText
+        }
     }
 }

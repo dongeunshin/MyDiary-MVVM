@@ -12,7 +12,9 @@ import RealmSwift
 
 class WriteViewController: UIViewController {
     
+    lazy var password = self.realm.objects(Password.self)
     // MARK: - @IBOutlet properties
+    @IBOutlet weak var wordCountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
@@ -30,7 +32,25 @@ class WriteViewController: UIViewController {
         if lockBttn.isSelected == true {
             lockBttn.isSelected = false
         }else {
-            lockBttn.isSelected = true
+            let alert = UIAlertController(title: "", message: "비밀 모드로 전환을 위해 비밀번호를 입력해 주세요", preferredStyle: .alert)
+            alert.addTextField { tf in
+                tf.placeholder = "비밀번호 입력"
+            }
+            let submit = UIAlertAction(title: "Submit", style: .default) { (ok) in
+                let passwordInput = alert.textFields?[0].text
+                if self.password[0].password == passwordInput{
+                    self.lockBttn.isSelected = true
+                }else{
+                    let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "비밀번호는 1234", preferredStyle: .alert)
+                    let retry = UIAlertAction(title: "OK", style: .cancel)
+                    alert2.addAction(retry)
+                    self.present(alert2, animated: true, completion: nil)
+                }
+            }
+            let cancel = UIAlertAction(title: "cancel", style: .cancel)
+            alert.addAction(cancel)
+            alert.addAction(submit)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     @IBAction func SaveBtn(_ sender: Any) {
@@ -49,9 +69,6 @@ class WriteViewController: UIViewController {
             weatherViewModel.save(diary: newDiary)
             self.navigationController?.popViewController(animated: false)
         }
-        let realm = try! Realm()
-        lazy var diary = self.realm.objects(Diary.self)
-        print(diary)
     }
     
     // MARK: -
@@ -88,6 +105,11 @@ class WriteViewController: UIViewController {
                     self.diaryTextView.textColor = UIColor.black
                 }})
             .disposed(by: disposeBag)
+        
+        diaryTextView.rx.didChange
+            .subscribe { _ in
+            self.wordCountLabel.text = "\(self.diaryTextView.text.count)자"
+            }.disposed(by: disposeBag)
         
         diaryTextView.rx.didEndEditing
             .subscribe { _ in

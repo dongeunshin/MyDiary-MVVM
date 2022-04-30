@@ -12,7 +12,7 @@ class EditViewController: UIViewController {
     
     let realm = try! Realm()
     lazy var diary = self.realm.objects(Diary.self)
-    
+    lazy var password = self.realm.objects(Password.self)
     var indexpath : IndexPath?
 
     @IBOutlet weak var dateLabel: UILabel!
@@ -22,9 +22,27 @@ class EditViewController: UIViewController {
 
     @IBAction func luckBttnAction(_ sender: Any) {
         if luckBttn.isSelected == true {
-            luckBttn.isSelected = false
+            self.luckBttn.isSelected = false
         }else {
-            luckBttn.isSelected = true
+            let alert = UIAlertController(title: "", message: "비밀 모드로 전환을 위해 비밀번호를 입력해 주세요", preferredStyle: .alert)
+            alert.addTextField { tf in
+                tf.placeholder = "비밀번호 입력"
+            }
+            let submit = UIAlertAction(title: "Submit", style: .default) { (ok) in
+                let passwordInput = alert.textFields?[0].text
+                if self.password[0].password == passwordInput{
+                    self.luckBttn.isSelected = true
+                }else{
+                    let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "비밀번호는 1234", preferredStyle: .alert)
+                    let retry = UIAlertAction(title: "OK", style: .cancel)
+                    alert2.addAction(retry)
+                    self.present(alert2, animated: true, completion: nil)
+                }
+            }
+            let cancel = UIAlertAction(title: "cancel", style: .cancel)
+            alert.addAction(cancel)
+            alert.addAction(submit)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     @IBAction func favBttnAction(_ sender: Any) {

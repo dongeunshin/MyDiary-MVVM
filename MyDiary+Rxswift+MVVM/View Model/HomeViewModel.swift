@@ -14,9 +14,11 @@ class HomeViewModel {
 
     let realm = try! Realm()
     lazy var diary = self.realm.objects(Diary.self)
-    lazy var allDiary = BehaviorRelay(value: diary) //BehaviorSubject<Results<Diary>>(value: diary)
-    lazy var filteredDiary = diary.filter({$0.isFav == false})
+    lazy var allDiary = BehaviorRelay(value: diary)
+    lazy var filteredDiary = diary.filter({$0.isFav == true})
     lazy var filteredDiaryList = BehaviorRelay(value: filteredDiary)
+    lazy var searchedDiary = diary.filter({$0.title.contains("")})
+    lazy var searchedDiaryList = BehaviorRelay(value: searchedDiary)
     
     func reload(){
         allDiary.accept(diary)
@@ -33,5 +35,11 @@ class HomeViewModel {
                 print("Error: \(error)")
         }
         reload()
+    }
+    
+    func searchMemo(queryValue: String) {
+        searchedDiary = diary.filter({$0.title.contains(queryValue)})
+        searchedDiaryList.accept(searchedDiary)
+        print(searchedDiary)
     }
 }
