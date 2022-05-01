@@ -46,21 +46,8 @@ class DetailViewController: UIViewController {
     }
     
     private func setData(){
-//        if let index = self.indexpath?.row {
-//            let d = diary[index]
-//            dateLabel.text =  d.date
-//            titleLabel.text = d.title
-//            weatherLabel.text = d.weather
-//            contentLabel.text = d.content
-//            starBttn.isSelected = d.isFav
-//            lockBttn.isSelected = d.isLocked
-//        }
-        
-        print(t,c)
-        print(indexpath?.row)
-        guard let t = t, let c = c else { return }
-        let diary = viewModel.fetchData(title: t, condent: c)
-        if let d = diary.first {
+        if let index = self.indexpath?.row {
+            let d = diary[index]
             dateLabel.text =  d.date
             titleLabel.text = d.title
             weatherLabel.text = d.weather
@@ -68,5 +55,16 @@ class DetailViewController: UIViewController {
             starBttn.isSelected = d.isFav
             lockBttn.isSelected = d.isLocked
         }
+        
+//        guard let t = t, let c = c else { return }
+//        let diary = viewModel.fetchData(title: t, condent: c)
+//        if let d = diary.first {
+//            dateLabel.text =  d.date
+//            titleLabel.text = d.title
+//            weatherLabel.text = d.weather
+//            contentLabel.text = d.content
+//            starBttn.isSelected = d.isFav
+//            lockBttn.isSelected = d.isLocked
+//        }
     }
 }

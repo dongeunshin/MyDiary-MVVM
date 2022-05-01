@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C017D2C281A746E0029C2DF /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C017D2B281A746E0029C2DF /* EditViewController.swift */; };
+		7C136A3C281E5EB30081667C /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C136A3B281E5EB30081667C /* PasswordViewController.swift */; };
 		7C159A8227B25E080056F186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C159A8127B25E080056F186 /* AppDelegate.swift */; };
 		7C159A8427B25E080056F186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C159A8327B25E080056F186 /* SceneDelegate.swift */; };
 		7C159A8927B25E080056F186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C159A8727B25E080056F186 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		7C017D2B281A746E0029C2DF /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		7C136A3B281E5EB30081667C /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		7C159A7E27B25E080056F186 /* MyDiary+Rxswift+MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyDiary+Rxswift+MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C159A8127B25E080056F186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C159A8327B25E080056F186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				7CF9B35127DDEE98005FB800 /* DetailViewController.swift */,
 				7C017D2B281A746E0029C2DF /* EditViewController.swift */,
 				7CFD2934281D8FE600DABC07 /* SettingViewController.swift */,
+				7C136A3B281E5EB30081667C /* PasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				7C7290A9281D14B4009D0B5F /* PassWordModel.swift in Sources */,
 				7CFB4A2E27B64D9500EDE622 /* WeatherViewModel.swift in Sources */,
 				7CFD2935281D8FE600DABC07 /* SettingViewController.swift in Sources */,
+				7C136A3C281E5EB30081667C /* PasswordViewController.swift in Sources */,
 				7C159A9E27B2704A0056F186 /* FavDiaryViewController.swift in Sources */,
 				7CFB4A2C27B64C3E00EDE622 /* CurrentWeatherModel.swift in Sources */,
 				7CFB4A3127B65D0200EDE622 /* HomeTableViewCell.swift in Sources */,

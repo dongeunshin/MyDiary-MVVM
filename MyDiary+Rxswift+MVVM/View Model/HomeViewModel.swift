@@ -14,11 +14,13 @@ class HomeViewModel {
 
     let realm = try! Realm()
     lazy var diary = self.realm.objects(Diary.self).filter({!$0.title.isEmpty})
-    
     lazy var allDiary = BehaviorRelay(value: diary)
     lazy var filteredDiary = diary.filter({$0.isFav == true})
     lazy var filteredDiaryList = BehaviorRelay(value: filteredDiary)
     let nsPredicateFormat = "title == %@"
+    
+    var diaryList : LazyFilterSequence<Results<Diary>>?
+    
     func reload(){
         allDiary.accept(diary)
     }
@@ -38,6 +40,7 @@ class HomeViewModel {
     func searchMemo(queryValue: String) {
 //        let predicate = NSPredicate(format: nsPredicateFormat, queryValue)
 //        let searchedDiary = diary.filter(predicate)
+        
         let searchedDiary = diary.filter({$0.title.contains(queryValue)})
         allDiary.accept(searchedDiary)
     }

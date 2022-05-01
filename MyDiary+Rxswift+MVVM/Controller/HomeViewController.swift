@@ -38,13 +38,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
-        do{
-            try realm.write{ realm.add(Password(password: "1234")) }
-        } catch {
-            print("Error: \(error)")
-        }
-        
-        
+    
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "어떤 메모를 찾으시나요?"
         searchController.hidesNavigationBarDuringPresentation = false
@@ -69,6 +63,12 @@ class HomeViewController: UIViewController {
                 cell.titleLabel.text = item.title
                 cell.contentLabel.text = item.isLocked ? "비밀 메모입니다" : item.content
                 cell.img.image = item.isLocked ? UIImage(systemName: "lock")! : UIImage(systemName: "lock.open")!
+
+                cell.layer.shadowColor = UIColor.black.cgColor
+                cell.layer.shadowOpacity = 0.5
+                cell.layer.shadowRadius = 10
+                cell.contentView.layer.cornerRadius = 10
+                cell.contentView.layer.masksToBounds = true
             }
             .disposed(by: disposeBag)
 
@@ -88,8 +88,9 @@ class HomeViewController: UIViewController {
                 vc.indexpath = indexPath
                 vc.t = self.diary[indexPath.row].title
                 vc.c = self.diary[indexPath.row].content
-//                vc.t = diary.
-//                vc.c =
+                print(indexPath.row)
+//                vc.t = self.viewModel.diaryList![indexPath.row].title
+//                vc.c = self.viewModel.diaryList![indexPath.row].content
 
                 if self.diary[indexPath.row].isLocked {
                     let alert = UIAlertController(title: "비밀메모 입니다", message: "비밀번호를 입력해 주세요", preferredStyle: .alert)

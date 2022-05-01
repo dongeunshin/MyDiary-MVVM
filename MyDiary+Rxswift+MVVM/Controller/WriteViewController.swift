@@ -30,27 +30,34 @@ class WriteViewController: UIViewController {
     }
     @IBAction func lockBttnAction(_ sender: Any) {
         if lockBttn.isSelected == true {
-            lockBttn.isSelected = false
+            self.lockBttn.isSelected = false
         }else {
-            let alert = UIAlertController(title: "", message: "비밀 모드로 전환을 위해 비밀번호를 입력해 주세요", preferredStyle: .alert)
-            alert.addTextField { tf in
-                tf.placeholder = "비밀번호 입력"
-            }
-            let submit = UIAlertAction(title: "Submit", style: .default) { (ok) in
-                let passwordInput = alert.textFields?[0].text
-                if self.password[0].password == passwordInput{
-                    self.lockBttn.isSelected = true
-                }else{
-                    let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "비밀번호는 1234", preferredStyle: .alert)
-                    let retry = UIAlertAction(title: "OK", style: .cancel)
-                    alert2.addAction(retry)
-                    self.present(alert2, animated: true, completion: nil)
+            if password.count == 0 {
+                let alert = UIAlertController(title: "잠깐!", message: "설정에서 비밀번호를 설정해 주세요", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "ok", style: .cancel)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "잠깐!", message: "비밀 모드로 전환을 위해 비밀번호를 입력해 주세요", preferredStyle: .alert)
+                alert.addTextField { tf in
+                    tf.placeholder = "비밀번호 입력"
                 }
+                let submit = UIAlertAction(title: "Submit", style: .default) { (ok) in
+                    let passwordInput = alert.textFields?[0].text
+                    if self.password[0].password == passwordInput{
+                        self.lockBttn.isSelected = true
+                    }else{
+                        let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "비밀번호는 1234", preferredStyle: .alert)
+                        let retry = UIAlertAction(title: "OK", style: .cancel)
+                        alert2.addAction(retry)
+                        self.present(alert2, animated: true, completion: nil)
+                    }
+                }
+                let cancel = UIAlertAction(title: "cancel", style: .cancel)
+                alert.addAction(cancel)
+                alert.addAction(submit)
+                self.present(alert, animated: true, completion: nil)
             }
-            let cancel = UIAlertAction(title: "cancel", style: .cancel)
-            alert.addAction(cancel)
-            alert.addAction(submit)
-            self.present(alert, animated: true, completion: nil)
         }
     }
     @IBAction func SaveBtn(_ sender: Any) {
@@ -82,6 +89,15 @@ class WriteViewController: UIViewController {
         
         setupDate()
         setupBinding()
+        diaryTextView.layer.borderWidth = 1.0
+        diaryTextView.layer.borderColor = UIColor.systemGray5.cgColor
+        diaryTextView.layer.cornerRadius = 10
+        
+        
+
+        diaryTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+
+
     }
     
     private func setupDate() {

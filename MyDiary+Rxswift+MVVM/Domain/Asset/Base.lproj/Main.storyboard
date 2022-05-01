@@ -53,9 +53,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="121" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QHE-iO-Smy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="121" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QHE-iO-Smy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeTableViewCell" rowHeight="121" id="Jfk-bg-EkI" customClass="HomeTableViewCell" customModule="MyDiary_Rxswift_MVVM" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="121"/>
@@ -151,7 +152,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용" translatesAutoresizingMaskIntoConstraints="NO" id="qco-yU-FAY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qco-yU-FAY">
                                 <rect key="frame" x="30" y="262" width="354" height="373"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -356,20 +357,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="오늘의 제목을 적어바" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKq-cl-58R">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKq-cl-58R">
                                 <rect key="frame" x="30" y="203" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="오늘의 일기를 적어바" translatesAutoresizingMaskIntoConstraints="NO" id="5LE-mD-6bf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5LE-mD-6bf">
                                 <rect key="frame" x="30" y="258" width="354" height="373"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="373" id="COa-Jd-Hos"/>
                                 </constraints>
-                                <color key="textColor" systemColor="systemGrayColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartInsertDeleteType="no"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="MM DD YYYY " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCE-Ny-FUj">
                                 <rect key="frame" x="30" y="98" width="196" height="36"/>
@@ -462,7 +463,7 @@
             </objects>
             <point key="canvasLocation" x="445" y="380"/>
         </scene>
-        <!--페이보릿 메모-->
+        <!--Favorite-->
         <scene sceneID="wmp-0A-jT8">
             <objects>
                 <viewController id="DfR-Iq-gyu" customClass="FavDiaryViewController" customModule="MyDiary_Rxswift_MVVM" customModuleProvider="target" sceneMemberID="viewController">
@@ -523,7 +524,7 @@
                             <constraint firstItem="dx7-pI-e62" firstAttribute="top" secondItem="IoL-gz-Lxo" secondAttribute="top" id="cAn-yD-QOt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="페이보릿 메모" id="YFv-V1-5af"/>
+                    <navigationItem key="navigationItem" title="Favorite" id="YFv-V1-5af"/>
                     <connections>
                         <outlet property="favTableView" destination="dx7-pI-e62" id="igK-hF-CKW"/>
                         <segue destination="A11-V2-Nek" kind="show" identifier="" id="EpC-Yd-JbK"/>
@@ -550,7 +551,7 @@
             </objects>
             <point key="canvasLocation" x="425" y="1065"/>
         </scene>
-        <!--Setting View Controller-->
+        <!--Setting-->
         <scene sceneID="UkV-A2-Oqj">
             <objects>
                 <viewController id="ATf-44-329" customClass="SettingViewController" customModule="MyDiary_Rxswift_MVVM" customModuleProvider="target" sceneMemberID="viewController">
@@ -558,24 +559,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3A-6H-7Rx">
-                                <rect key="frame" x="20" y="88" width="119" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="119" id="2Nr-pE-SGy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-zg-lsP">
-                                <rect key="frame" x="293" y="173" width="93" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="설정 및 변경"/>
-                                <connections>
-                                    <action selector="passwordBttnAction:" destination="ATf-44-329" eventType="touchUpInside" id="avT-Ae-Ml3"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfy-D6-TPZ">
                                 <rect key="frame" x="20" y="146" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -583,36 +566,79 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7eQ-fo-dfu">
-                                <rect key="frame" x="20" y="171" width="255" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsb-bG-djp">
+                                <rect key="frame" x="74" y="168" width="266" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KM-bW-BLL">
-                                <rect key="frame" x="20" y="142" width="74" height="21"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="비밀번호 설정 및 변경" cornerStyle="capsule"/>
+                                <connections>
+                                    <segue destination="4Ts-bW-1Zb" kind="show" id="mKH-YB-d1i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSi-Vh-t4L">
+                                <rect key="frame" x="74" y="223" width="266" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="알람 설정 및 변경" cornerStyle="capsule"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zQO-kW-wDd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="K3A-6H-7Rx" firstAttribute="top" secondItem="zQO-kW-wDd" secondAttribute="top" id="HQV-wM-uHD"/>
-                            <constraint firstItem="K3A-6H-7Rx" firstAttribute="leading" secondItem="zQO-kW-wDd" secondAttribute="leading" constant="20" id="fa1-3J-o8N"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="YnT-Mi-wVp"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Setting" id="YnT-Mi-wVp"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="passwordBttn" destination="Fgd-zg-lsP" id="ok0-4T-Lcj"/>
-                        <outlet property="passwordTextField" destination="7eQ-fo-dfu" id="811-O5-YTq"/>
+                        <outlet property="alartBttn" destination="mSi-Vh-t4L" id="2h7-ey-OM5"/>
+                        <outlet property="passwordBttn" destination="Rsb-bG-djp" id="ih8-sD-kBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TEX-2w-H0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1273.913043478261" y="1064.7321428571429"/>
+        </scene>
+        <!--Password View Controller-->
+        <scene sceneID="0Iv-Xr-zpk">
+            <objects>
+                <viewController id="4Ts-bW-1Zb" customClass="PasswordViewController" customModule="MyDiary_Rxswift_MVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fru-Q4-ZjG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="새로운 비밀번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-YE-37w">
+                                <rect key="frame" x="83" y="152" width="248" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="H6m-LT-D92"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZs-gJ-E11">
+                                <rect key="frame" x="173" y="214" width="69" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="변경" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="passwordBttnAction:" destination="4Ts-bW-1Zb" eventType="touchUpInside" id="rOX-7W-cAr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PgR-Zb-xoP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PgR-Zb-xoP" firstAttribute="trailing" secondItem="l5b-YE-37w" secondAttribute="trailing" constant="83" id="2QO-ra-IuS"/>
+                            <constraint firstItem="l5b-YE-37w" firstAttribute="leading" secondItem="PgR-Zb-xoP" secondAttribute="leading" constant="83" id="9wU-6w-pLS"/>
+                            <constraint firstItem="l5b-YE-37w" firstAttribute="top" secondItem="PgR-Zb-xoP" secondAttribute="top" constant="64" id="wj3-mf-i14"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EXD-E8-Z37"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="l5b-YE-37w" id="4b3-WU-FNN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5zw-ic-e07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2075.36231884058" y="1064.7321428571429"/>
         </scene>
     </scenes>
     <resources>
@@ -622,6 +648,9 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
