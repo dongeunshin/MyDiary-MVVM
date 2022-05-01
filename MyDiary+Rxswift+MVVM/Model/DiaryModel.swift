@@ -18,8 +18,7 @@ class Diary : Object {
     @objc dynamic var weather: String = ""
     @objc dynamic var isFav: Bool = false
     @objc dynamic var isLocked: Bool = false
-//    @objc dynamic var img: Data = Data()
-    // 생성자
+    
     convenience init(date: String, title:String, content:String, weather:String, isFav:Bool, isLocked: Bool) {
         self.init()
         self.date = date
@@ -28,6 +27,5 @@ class Diary : Object {
         self.weather = weather
         self.isFav = isFav
         self.isLocked = isLocked
-//        self.img = img
     }
 }

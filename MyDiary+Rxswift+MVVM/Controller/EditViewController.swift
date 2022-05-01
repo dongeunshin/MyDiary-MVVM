@@ -13,7 +13,12 @@ class EditViewController: UIViewController {
     let realm = try! Realm()
     lazy var diary = self.realm.objects(Diary.self)
     lazy var password = self.realm.objects(Password.self)
+    
     var indexpath : IndexPath?
+    var t: String?
+    var c: String?
+    
+    let viewModel = HomeViewModel()
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
@@ -24,7 +29,7 @@ class EditViewController: UIViewController {
         if luckBttn.isSelected == true {
             self.luckBttn.isSelected = false
         }else {
-            let alert = UIAlertController(title: "", message: "비밀 모드로 전환을 위해 비밀번호를 입력해 주세요", preferredStyle: .alert)
+            let alert = UIAlertController(title: "비밀 모드로 전환을 위해 비밀번호를 입력해 주세요", message: "", preferredStyle: .alert)
             alert.addTextField { tf in
                 tf.placeholder = "비밀번호 입력"
             }
@@ -57,8 +62,11 @@ class EditViewController: UIViewController {
     @IBAction func DoneBttnAction(_ sender: Any) {
         do {
             try realm.write {
-                guard let i = self.indexpath?.row else {return}
-                let currDiary = diary[i]
+//                guard let i = self.indexpath?.row else {return}
+//                let currDiary = diary[i]
+                guard let t = t, let c = c else { return }
+                let d = viewModel.fetchData(title: t, condent: c)
+                let currDiary = d.first!
                 currDiary.title = self.titleLabel.text ?? "tmptitle"
                 currDiary.content = self.contentLabel.text ?? "tmptitle"
                 currDiary.isLocked = self.luckBttn.isSelected
@@ -73,14 +81,24 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let index = self.indexpath?.row {
-            let d = diary[index]
+//        if let index = self.indexpath?.row {
+//            let d = diary[index]
+//            dateLabel.text =  d.date
+//            titleLabel.text = d.title
+//            weatherLabel.text = d.weather
+//            contentLabel.text = d.content
+//            luckBttn.isSelected = d.isLocked
+//            favBttn.isSelected = d.isFav
+//        }
+        guard let t = t, let c = c else { return }
+        let diary = viewModel.fetchData(title: t, condent: c)
+        if let d = diary.first {
             dateLabel.text =  d.date
             titleLabel.text = d.title
             weatherLabel.text = d.weather
             contentLabel.text = d.content
-            luckBttn.isSelected = d.isLocked
             favBttn.isSelected = d.isFav
+            luckBttn.isSelected = d.isLocked
         }
 
     }

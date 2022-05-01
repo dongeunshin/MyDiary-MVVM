@@ -10,10 +10,13 @@ import RealmSwift
 import RxSwift
 import RxCocoa
 
+import UIKit
+import RealmSwift
+import RxSwift
+import RxCocoa
+
 class HomeViewController: UIViewController {
     
-    var keyword = ""
-        
     let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = HomeViewModel()
@@ -51,14 +54,14 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = searchController.searchBar
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "showDetail" {
-            let vc = segue.destination as? DetailViewController
-            if let indexpath = self.homeTableView.indexPathForSelectedRow {
-                vc?.indexpath = indexpath
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+//        if segue.identifier == "showDetail" {
+//            let vc = segue.destination as? DetailViewController
+//            if let indexpath = self.homeTableView.indexPathForSelectedRow {
+//                vc?.indexpath = indexpath
+//            }
+//        }
+//    }
     private func setupBinding(){
         viewModel.allDiary
             .bind(to: homeTableView.rx.items(cellIdentifier: "HomeTableViewCell", cellType: HomeTableViewCell.self)) { index, item, cell in
@@ -83,6 +86,10 @@ class HomeViewController: UIViewController {
                 guard let self = self else { return }
                 guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController else { return }
                 vc.indexpath = indexPath
+                vc.t = self.diary[indexPath.row].title
+                vc.c = self.diary[indexPath.row].content
+//                vc.t = diary.
+//                vc.c =
 
                 if self.diary[indexPath.row].isLocked {
                     let alert = UIAlertController(title: "비밀메모 입니다", message: "비밀번호를 입력해 주세요", preferredStyle: .alert)
@@ -118,10 +125,9 @@ extension HomeViewController: UISearchResultsUpdating{
     }
     func updateSearchResults(for searchController: UISearchController) {
         if ((searchController.searchBar.text?.isEmpty) == true){
-            self.homeTableView.reloadData()
+            viewModel.reload()
         } else if let searchText = searchController.searchBar.text {
-//            viewModel.searchMemo(queryValue: searchText)
-//            keyword = searchText
+            viewModel.searchMemo(queryValue: searchText)
         }
     }
 }
