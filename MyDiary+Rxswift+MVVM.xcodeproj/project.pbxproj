@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C017D2C281A746E0029C2DF /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C017D2B281A746E0029C2DF /* EditViewController.swift */; };
-		7C136A3C281E5EB30081667C /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C136A3B281E5EB30081667C /* PasswordViewController.swift */; };
 		7C159A8227B25E080056F186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C159A8127B25E080056F186 /* AppDelegate.swift */; };
 		7C159A8427B25E080056F186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C159A8327B25E080056F186 /* SceneDelegate.swift */; };
 		7C159A8927B25E080056F186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C159A8727B25E080056F186 /* Main.storyboard */; };
@@ -21,6 +20,7 @@
 		7C159AA927B2827C0056F186 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7C159AA827B2827C0056F186 /* RealmSwift */; };
 		7C159AAB27B283EC0056F186 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C159AAA27B283EC0056F186 /* DiaryModel.swift */; };
 		7C471F62280D56BF0006D39C /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C471F61280D56BF0006D39C /* FavTableViewCell.swift */; };
+		7C4AA77D281E848000E9EDDB /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AA77C281E848000E9EDDB /* PasswordViewController.swift */; };
 		7C56E0ED27B2B6C900DD44F0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56E0EC27B2B6C900DD44F0 /* RxCocoa */; };
 		7C56E0EF27B2B6C900DD44F0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56E0EE27B2B6C900DD44F0 /* RxRelay */; };
 		7C56E0F127B2B6C900DD44F0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56E0F027B2B6C900DD44F0 /* RxSwift */; };
@@ -41,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		7C017D2B281A746E0029C2DF /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		7C136A3B281E5EB30081667C /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		7C159A7E27B25E080056F186 /* MyDiary+Rxswift+MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyDiary+Rxswift+MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C159A8127B25E080056F186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C159A8327B25E080056F186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		7C159A9D27B2704A0056F186 /* FavDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavDiaryViewController.swift; sourceTree = "<group>"; };
 		7C159AAA27B283EC0056F186 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		7C471F61280D56BF0006D39C /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
+		7C4AA77C281E848000E9EDDB /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		7C7290A8281D14B4009D0B5F /* PassWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassWordModel.swift; sourceTree = "<group>"; };
 		7CF9B35127DDEE98005FB800 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7CFB4A2227B6378300EDE622 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				7CF9B35127DDEE98005FB800 /* DetailViewController.swift */,
 				7C017D2B281A746E0029C2DF /* EditViewController.swift */,
 				7CFD2934281D8FE600DABC07 /* SettingViewController.swift */,
-				7C136A3B281E5EB30081667C /* PasswordViewController.swift */,
+				7C4AA77C281E848000E9EDDB /* PasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 				7C7290A9281D14B4009D0B5F /* PassWordModel.swift in Sources */,
 				7CFB4A2E27B64D9500EDE622 /* WeatherViewModel.swift in Sources */,
 				7CFD2935281D8FE600DABC07 /* SettingViewController.swift in Sources */,
-				7C136A3C281E5EB30081667C /* PasswordViewController.swift in Sources */,
+				7C4AA77D281E848000E9EDDB /* PasswordViewController.swift in Sources */,
 				7C159A9E27B2704A0056F186 /* FavDiaryViewController.swift in Sources */,
 				7CFB4A2C27B64C3E00EDE622 /* CurrentWeatherModel.swift in Sources */,
 				7CFB4A3127B65D0200EDE622 /* HomeTableViewCell.swift in Sources */,

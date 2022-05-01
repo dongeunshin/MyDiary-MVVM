@@ -590,7 +590,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="alartBttn" destination="mSi-Vh-t4L" id="2h7-ey-OM5"/>
-                        <outlet property="passwordBttn" destination="Rsb-bG-djp" id="ih8-sD-kBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TEX-2w-H0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
