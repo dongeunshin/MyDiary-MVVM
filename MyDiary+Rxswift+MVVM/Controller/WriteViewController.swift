@@ -12,7 +12,6 @@ import RealmSwift
 
 class WriteViewController: UIViewController {
     
-    lazy var password = self.realm.objects(Password.self)
     // MARK: - @IBOutlet properties
     @IBOutlet weak var wordCountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -79,6 +78,7 @@ class WriteViewController: UIViewController {
     }
     
     // MARK: -
+    lazy var password = self.realm.objects(Password.self)
     var realm = try! Realm()
     var disposeBag = DisposeBag()
     let weatherViewModel = WeatherViewModel()
@@ -89,15 +89,10 @@ class WriteViewController: UIViewController {
         
         setupDate()
         setupBinding()
-        diaryTextView.layer.borderWidth = 1.0
-        diaryTextView.layer.borderColor = UIColor.systemGray5.cgColor
-        diaryTextView.layer.cornerRadius = 10
-        
-        
-
-        diaryTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-
-
+//        diaryTextView.layer.borderWidth = 1.0
+//        diaryTextView.layer.borderColor = UIColor.systemGray5.cgColor
+//        diaryTextView.layer.cornerRadius = 10
+//        diaryTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     }
     
     private func setupDate() {

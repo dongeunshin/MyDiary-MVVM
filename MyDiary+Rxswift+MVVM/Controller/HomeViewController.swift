@@ -4,12 +4,6 @@
 //
 //  Created by dong eun shin on 2022/02/08.
 //
-
-import UIKit
-import RealmSwift
-import RxSwift
-import RxCocoa
-
 import UIKit
 import RealmSwift
 import RxSwift
@@ -38,7 +32,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
+        setSearchController()
+    }
     
+    private func setSearchController(){
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "어떤 메모를 찾으시나요?"
         searchController.hidesNavigationBarDuringPresentation = false
@@ -48,14 +45,6 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = searchController.searchBar
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-//        if segue.identifier == "showDetail" {
-//            let vc = segue.destination as? DetailViewController
-//            if let indexpath = self.homeTableView.indexPathForSelectedRow {
-//                vc?.indexpath = indexpath
-//            }
-//        }
-//    }
     private func setupBinding(){
         viewModel.allDiary
             .bind(to: homeTableView.rx.items(cellIdentifier: "HomeTableViewCell", cellType: HomeTableViewCell.self)) { index, item, cell in
@@ -88,9 +77,6 @@ class HomeViewController: UIViewController {
                 vc.indexpath = indexPath
                 vc.t = self.diary[indexPath.row].title
                 vc.c = self.diary[indexPath.row].content
-                print(indexPath.row)
-//                vc.t = self.viewModel.diaryList![indexPath.row].title
-//                vc.c = self.viewModel.diaryList![indexPath.row].content
 
                 if self.diary[indexPath.row].isLocked {
                     let alert = UIAlertController(title: "비밀메모 입니다", message: "비밀번호를 입력해 주세요", preferredStyle: .alert)

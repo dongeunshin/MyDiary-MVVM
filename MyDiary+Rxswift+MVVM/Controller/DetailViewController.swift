@@ -25,7 +25,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var lockBttn: UIButton!
     @IBOutlet weak var starBttn: UIButton!
-    
     @IBOutlet weak var editBttn: UIButton!
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -55,16 +54,5 @@ class DetailViewController: UIViewController {
             starBttn.isSelected = d.isFav
             lockBttn.isSelected = d.isLocked
         }
-        
-//        guard let t = t, let c = c else { return }
-//        let diary = viewModel.fetchData(title: t, condent: c)
-//        if let d = diary.first {
-//            dateLabel.text =  d.date
-//            titleLabel.text = d.title
-//            weatherLabel.text = d.weather
-//            contentLabel.text = d.content
-//            starBttn.isSelected = d.isFav
-//            lockBttn.isSelected = d.isLocked
-//        }
     }
 }

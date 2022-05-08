@@ -10,6 +10,7 @@ import RealmSwift
 
 class EditViewController: UIViewController {
     
+    let viewModel = HomeViewModel()
     let realm = try! Realm()
     lazy var diary = self.realm.objects(Diary.self)
     lazy var password = self.realm.objects(Password.self)
@@ -17,14 +18,12 @@ class EditViewController: UIViewController {
     var indexpath : IndexPath?
     var t: String?
     var c: String?
-    
-    let viewModel = HomeViewModel()
 
+    // MARK: - @IBOutlet Properties
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var luckBttn: UIButton!
     @IBOutlet weak var favBttn: UIButton!
-
     @IBAction func luckBttnAction(_ sender: Any) {
         if luckBttn.isSelected == true {
             self.luckBttn.isSelected = false
@@ -69,8 +68,6 @@ class EditViewController: UIViewController {
     @IBAction func DoneBttnAction(_ sender: Any) {
         do {
             try realm.write {
-//                guard let i = self.indexpath?.row else {return}
-//                let currDiary = diary[i]
                 guard let t = t, let c = c else { return }
                 let d = viewModel.fetchData(title: t, condent: c)
                 let currDiary = d.first!
@@ -85,18 +82,10 @@ class EditViewController: UIViewController {
         
         self.navigationController?.popViewController(animated: false)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let index = self.indexpath?.row {
-//            let d = diary[index]
-//            dateLabel.text =  d.date
-//            titleLabel.text = d.title
-//            weatherLabel.text = d.weather
-//            contentLabel.text = d.content
-//            luckBttn.isSelected = d.isLocked
-//            favBttn.isSelected = d.isFav
-//        }
         guard let t = t, let c = c else { return }
         let diary = viewModel.fetchData(title: t, condent: c)
         if let d = diary.first {
@@ -107,7 +96,5 @@ class EditViewController: UIViewController {
             favBttn.isSelected = d.isFav
             luckBttn.isSelected = d.isLocked
         }
-
     }
-    
 }

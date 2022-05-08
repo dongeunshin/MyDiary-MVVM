@@ -37,10 +37,7 @@ class HomeViewModel {
         }
         reload()
     }
-    func searchMemo(queryValue: String) {
-//        let predicate = NSPredicate(format: nsPredicateFormat, queryValue)
-//        let searchedDiary = diary.filter(predicate)
-        
+    func searchMemo(queryValue: String) {        
         let searchedDiary = diary.filter({$0.title.contains(queryValue)})
         allDiary.accept(searchedDiary)
     }
