@@ -11,17 +11,18 @@ import RxCocoa
 
 class HomeViewController: UIViewController {
     
-    let searchController = UISearchController(searchResultsController: nil)
-    @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = HomeViewModel()
     var disposeBag = DisposeBag()
 
+    let searchController = UISearchController(searchResultsController: nil)
+    
     // MARK: - Realm
     let realm = try! Realm()
     lazy var diary = self.realm.objects(Diary.self)
     lazy var password = self.realm.objects(Password.self)
     
     // MARK: - @IBOutlet Properties
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var homeTableView: UITableView!
     
     // MARK: - Lifecycle
