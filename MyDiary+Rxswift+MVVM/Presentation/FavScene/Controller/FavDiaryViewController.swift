@@ -27,7 +27,7 @@ class FavDiaryViewController: UIViewController {
         super.viewDidLoad()
         
         setupBinding()
-        tableviewItemSelected()
+//        tableviewItemSelected()
     }
     private func setupBinding(){
         viewModel.filteredDiaryList
@@ -39,11 +39,11 @@ class FavDiaryViewController: UIViewController {
         
         viewModel.reloadFavList()
     }
-    private func tableviewItemSelected(){
-        favTableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-//                guard let self = self else { return }
-//                self.performSegue(withIdentifier: "showDetail", sender: self)
-            }).disposed(by: disposeBag)
-    }
+//    private func tableviewItemSelected(){
+//        favTableView.rx.itemSelected
+//            .subscribe(onNext: { [weak self] indexPath in
+////                guard let self = self else { return }
+////                self.performSegue(withIdentifier: "showDetail", sender: self)
+//            }).disposed(by: disposeBag)
+//    }
 }

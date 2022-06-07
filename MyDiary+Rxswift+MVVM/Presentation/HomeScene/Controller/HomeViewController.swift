@@ -119,3 +119,34 @@ extension HomeViewController: UISearchResultsUpdating{
         }
     }
 }
+//homeTableView.rx.itemSelected
+//    .subscribe(with: self, onNext: { strongSelf, indexPath in
+//        guard let vc = strongSelf.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController else { return }
+//        vc.indexpath = indexPath
+//        vc.t = strongSelf.diary[indexPath.row].title
+//        vc.c = strongSelf.diary[indexPath.row].content
+//
+//        if strongSelf.diary[indexPath.row].isLocked {
+//            let alert = UIAlertController(title: "비밀메모 입니다", message: "비밀번호를 입력해 주세요", preferredStyle: .alert)
+//            alert.addTextField { tf in
+//                tf.placeholder = "비밀번호 입력"
+//            }
+//            let submit = UIAlertAction(title: "Submit", style: .default) { (ok) in
+//                let passwordInput = alert.textFields?[0].text
+//                if strongSelf.password[0].password == passwordInput{
+//                    strongSelf.navigationController?.pushViewController(vc, animated: true)
+//                }else{
+//                    let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "", preferredStyle: .alert)
+//                    let retry = UIAlertAction(title: "OK", style: .cancel)
+//                    alert2.addAction(retry)
+//                    strongSelf.present(alert2, animated: true, completion: nil)
+//                }
+//            }
+//            let cancel = UIAlertAction(title: "cancel", style: .cancel)
+//            alert.addAction(cancel)
+//            alert.addAction(submit)
+//            strongSelf.present(alert, animated: true, completion: nil)
+//        }else {
+//            strongSelf.navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }).disposed(by: disposeBag)

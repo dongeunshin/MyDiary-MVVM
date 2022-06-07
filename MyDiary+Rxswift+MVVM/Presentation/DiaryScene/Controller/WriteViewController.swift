@@ -109,11 +109,10 @@ class WriteViewController: UIViewController {
         weatherViewModel.reload()
         
         diaryTextView.rx.didBeginEditing
-            .subscribe(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                if self.diaryTextView.textColor == UIColor.systemGray {
-                    self.diaryTextView.text = nil
-                    self.diaryTextView.textColor = UIColor.black
+            .subscribe(onNext: {[weak self] _ in
+                if self?.diaryTextView.textColor == UIColor.systemGray {
+                    self?.diaryTextView.text = nil
+                    self?.diaryTextView.textColor = UIColor.black
                 }})
             .disposed(by: disposeBag)
         
