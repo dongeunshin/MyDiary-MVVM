@@ -104,31 +104,14 @@
 		7C159A8027B25E080056F186 /* MyDiary+Rxswift+MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				7CADDCF6284F796500B433AA /* Application */,
 				7C159AAC27B286B10056F186 /* Resource */,
-				7CFB4A2127B6375200EDE622 /* Entity */,
-				7C159AAD27B287230056F186 /* Repository */,
-				7C951A0327B4DEFB00E6DC07 /* Service */,
-				7C159A9827B26F260056F186 /* Model */,
-				7C159A9627B25E3B0056F186 /* View Model */,
-				7C159A9527B25E230056F186 /* Controller */,
+				7CADDCF6284F796500B433AA /* Application */,
+				7CADDD01284F850900B433AA /* Domain */,
+				7CADDD02284F857A00B433AA /* Util */,
+				7CADDD03284F858300B433AA /* Data */,
+				7CADDCF7284F7DF400B433AA /* Presentation */,
 			);
 			path = "MyDiary+Rxswift+MVVM";
-			sourceTree = "<group>";
-		};
-		7C159A9527B25E230056F186 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7CFB4A2F27B65CE600EDE622 /* Cell */,
-				7C159A9927B26FAB0056F186 /* HomeViewController.swift */,
-				7C159A9B27B270260056F186 /* WriteViewController.swift */,
-				7C159A9D27B2704A0056F186 /* FavDiaryViewController.swift */,
-				7CF9B35127DDEE98005FB800 /* DetailViewController.swift */,
-				7C017D2B281A746E0029C2DF /* EditViewController.swift */,
-				7CFD2934281D8FE600DABC07 /* SettingViewController.swift */,
-				7C4AA77C281E848000E9EDDB /* PasswordViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		7C159A9627B25E3B0056F186 /* View Model */ = {
@@ -194,6 +177,120 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		7CADDCF7284F7DF400B433AA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7CADDCFB284F7F0500B433AA /* DiaryScene */,
+				7CADDCFA284F7E3300B433AA /* SettingScene */,
+				7CADDCF9284F7E2300B433AA /* FavScene */,
+				7CADDCF8284F7E1000B433AA /* HomeScene */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		7CADDCF8284F7E1000B433AA /* HomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				7CADDD00284F7FCB00B433AA /* View */,
+				7C159A9627B25E3B0056F186 /* View Model */,
+				7CADDCFF284F7F4B00B433AA /* Controller */,
+			);
+			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		7CADDCF9284F7E2300B433AA /* FavScene */ = {
+			isa = PBXGroup;
+			children = (
+				7CFB4A2F27B65CE600EDE622 /* View */,
+				7CADDCFE284F7F4400B433AA /* Controller */,
+			);
+			path = FavScene;
+			sourceTree = "<group>";
+		};
+		7CADDCFA284F7E3300B433AA /* SettingScene */ = {
+			isa = PBXGroup;
+			children = (
+				7CADDCFD284F7F3F00B433AA /* Controller */,
+			);
+			path = SettingScene;
+			sourceTree = "<group>";
+		};
+		7CADDCFB284F7F0500B433AA /* DiaryScene */ = {
+			isa = PBXGroup;
+			children = (
+				7CADDCFC284F7F3900B433AA /* Controller */,
+			);
+			path = DiaryScene;
+			sourceTree = "<group>";
+		};
+		7CADDCFC284F7F3900B433AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C159A9B27B270260056F186 /* WriteViewController.swift */,
+				7CF9B35127DDEE98005FB800 /* DetailViewController.swift */,
+				7C017D2B281A746E0029C2DF /* EditViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7CADDCFD284F7F3F00B433AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD2934281D8FE600DABC07 /* SettingViewController.swift */,
+				7C4AA77C281E848000E9EDDB /* PasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7CADDCFE284F7F4400B433AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C159A9D27B2704A0056F186 /* FavDiaryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7CADDCFF284F7F4B00B433AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C159A9927B26FAB0056F186 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7CADDD00284F7FCB00B433AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CFB4A3027B65D0200EDE622 /* HomeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CADDD01284F850900B433AA /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				7CFB4A2127B6375200EDE622 /* Entity */,
+				7C159A9827B26F260056F186 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		7CADDD02284F857A00B433AA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7C951A0327B4DEFB00E6DC07 /* Service */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		7CADDD03284F858300B433AA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7C159AAD27B287230056F186 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		7CFB4A2127B6375200EDE622 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,13 +299,12 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		7CFB4A2F27B65CE600EDE622 /* Cell */ = {
+		7CFB4A2F27B65CE600EDE622 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7CFB4A3027B65D0200EDE622 /* HomeTableViewCell.swift */,
 				7C471F61280D56BF0006D39C /* FavTableViewCell.swift */,
 			);
-			path = Cell;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
