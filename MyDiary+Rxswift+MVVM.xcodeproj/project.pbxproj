@@ -104,7 +104,8 @@
 		7C159A8027B25E080056F186 /* MyDiary+Rxswift+MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				7C159AAC27B286B10056F186 /* Domain */,
+				7CADDCF6284F796500B433AA /* Application */,
+				7C159AAC27B286B10056F186 /* Resource */,
 				7CFB4A2127B6375200EDE622 /* Entity */,
 				7C159AAD27B287230056F186 /* Repository */,
 				7C951A0327B4DEFB00E6DC07 /* Service */,
@@ -149,15 +150,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7C159AAC27B286B10056F186 /* Domain */ = {
+		7C159AAC27B286B10056F186 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				7C159AAF27B287550056F186 /* Asset */,
-				7C159A8127B25E080056F186 /* AppDelegate.swift */,
-				7C159A8327B25E080056F186 /* SceneDelegate.swift */,
 				7C159A8F27B25E090056F186 /* Info.plist */,
 			);
-			path = Domain;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		7C159AAD27B287230056F186 /* Repository */ = {
@@ -184,6 +183,15 @@
 				7CFB4A2927B6484C00EDE622 /* WeatherService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7CADDCF6284F796500B433AA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7C159A8127B25E080056F186 /* AppDelegate.swift */,
+				7C159A8327B25E080056F186 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		7CFB4A2127B6375200EDE622 /* Entity */ = {
