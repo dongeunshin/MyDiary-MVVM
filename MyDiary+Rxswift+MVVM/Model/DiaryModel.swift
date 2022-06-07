@@ -10,14 +10,14 @@ import Foundation
 import RealmSwift
 import UIKit
 
-class Diary : Object {
-    @objc dynamic var id: String = ""
-    @objc dynamic var date: String = ""
-    @objc dynamic var title: String = ""
-    @objc dynamic var content: String = ""
-    @objc dynamic var weather: String = ""
-    @objc dynamic var isFav: Bool = false
-    @objc dynamic var isLocked: Bool = false
+@objcMembers class Diary : Object {
+    dynamic var id: String = ""
+    dynamic var date: String = ""
+    dynamic var title: String = ""
+    dynamic var content: String = ""
+    dynamic var weather: String = ""
+    dynamic var isFav: Bool = false
+    dynamic var isLocked: Bool = false
     
     convenience init(date: String, title:String, content:String, weather:String, isFav:Bool, isLocked: Bool) {
         self.init()
