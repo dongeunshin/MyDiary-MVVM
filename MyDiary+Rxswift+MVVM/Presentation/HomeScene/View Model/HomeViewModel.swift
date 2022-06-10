@@ -50,4 +50,20 @@ class HomeViewModel {
         let searchedDiary = self.realm.objects(Diary.self).filter(predicate)
         return searchedDiary
     }
+    
+    func editMemo(t:String?,c:String?,title:String,condent:String,isLocked: Bool, isFav: Bool){
+        do {
+            try realm.write {
+                guard let t = t, let c = c else { return }
+                let d = fetchData(title: t, condent: c)
+                let currDiary = d.first!
+                currDiary.title = title
+                currDiary.content = condent
+                currDiary.isLocked = isLocked
+                currDiary.isFav = isFav
+            }
+        } catch {
+                print("Error")
+        }
+    }
 }

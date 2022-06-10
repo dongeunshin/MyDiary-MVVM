@@ -12,9 +12,10 @@ import RxCocoa
 class HomeViewController: UIViewController {
     
     let viewModel = HomeViewModel()
-    var disposeBag = DisposeBag()
-
+    
+    // MARK: - Controller
     let searchController = UISearchController(searchResultsController: nil)
+    lazy var vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController
     
     // MARK: - Realm
     let realm = try! Realm()
@@ -46,6 +47,9 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = searchController.searchBar
     }
     
+    // MARK: - Rx
+    var disposeBag = DisposeBag()
+    
     private func setupBinding(){
         viewModel.allDiary
             .bind(to: homeTableView.rx.items(cellIdentifier: "HomeTableViewCell", cellType: HomeTableViewCell.self)) { index, item, cell in
@@ -74,35 +78,44 @@ class HomeViewController: UIViewController {
         homeTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController else { return }
+                guard let vc = self.vc else { return }
                 vc.indexpath = indexPath
                 vc.t = self.diary[indexPath.row].title
                 vc.c = self.diary[indexPath.row].content
 
                 if self.diary[indexPath.row].isLocked {
-                    let alert = UIAlertController(title: "비밀메모 입니다", message: "비밀번호를 입력해 주세요", preferredStyle: .alert)
-                    alert.addTextField { tf in
-                        tf.placeholder = "비밀번호 입력"
-                    }
-                    let submit = UIAlertAction(title: "Submit", style: .default) { (ok) in
-                        let passwordInput = alert.textFields?[0].text
-                        if self.password[0].password == passwordInput{
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }else{
-                            let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "", preferredStyle: .alert)
-                            let retry = UIAlertAction(title: "OK", style: .cancel)
-                            alert2.addAction(retry)
-                            self.present(alert2, animated: true, completion: nil)
-                        }
-                    }
-                    let cancel = UIAlertAction(title: "cancel", style: .cancel)
-                    alert.addAction(cancel)
-                    alert.addAction(submit)
-                    self.present(alert, animated: true, completion: nil)
+                    self.showAlert(state: .check)
                 }else {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }).disposed(by: disposeBag)
+    }
+    func showAlert(state : passwordCorrection) {
+        let alert = UIAlertController(title: "잠깐!", message: "비밀메모 입니다.", preferredStyle: .alert)
+        alert.addTextField { tf in
+            tf.placeholder = "비밀번호 입력"
+        }
+        let ok = UIAlertAction(title: "OK", style: .cancel)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        switch state {
+        case .invaild:
+            break
+        case .check:
+            let submit = UIAlertAction(title: "Submit", style: .default) { _ in
+                let passwordInput = alert.textFields?[0].text
+                if self.password[0].password == passwordInput{
+                    self.navigationController?.pushViewController(self.vc!, animated: true)
+                }else{
+                    let faild = UIAlertController(title: "잠깐!", message: "비밀번호가 틀렸습니다", preferredStyle: .alert)
+                    faild.addAction(ok)
+                    self.present(faild, animated: true, completion: nil)
+                }
+            }
+            alert.addAction(cancel)
+            alert.addAction(submit)
+        }
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -119,34 +132,4 @@ extension HomeViewController: UISearchResultsUpdating{
         }
     }
 }
-//homeTableView.rx.itemSelected
-//    .subscribe(with: self, onNext: { strongSelf, indexPath in
-//        guard let vc = strongSelf.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController else { return }
-//        vc.indexpath = indexPath
-//        vc.t = strongSelf.diary[indexPath.row].title
-//        vc.c = strongSelf.diary[indexPath.row].content
-//
-//        if strongSelf.diary[indexPath.row].isLocked {
-//            let alert = UIAlertController(title: "비밀메모 입니다", message: "비밀번호를 입력해 주세요", preferredStyle: .alert)
-//            alert.addTextField { tf in
-//                tf.placeholder = "비밀번호 입력"
-//            }
-//            let submit = UIAlertAction(title: "Submit", style: .default) { (ok) in
-//                let passwordInput = alert.textFields?[0].text
-//                if strongSelf.password[0].password == passwordInput{
-//                    strongSelf.navigationController?.pushViewController(vc, animated: true)
-//                }else{
-//                    let alert2 = UIAlertController(title: "비밀반호가 틀렸습니다.", message: "", preferredStyle: .alert)
-//                    let retry = UIAlertAction(title: "OK", style: .cancel)
-//                    alert2.addAction(retry)
-//                    strongSelf.present(alert2, animated: true, completion: nil)
-//                }
-//            }
-//            let cancel = UIAlertAction(title: "cancel", style: .cancel)
-//            alert.addAction(cancel)
-//            alert.addAction(submit)
-//            strongSelf.present(alert, animated: true, completion: nil)
-//        }else {
-//            strongSelf.navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }).disposed(by: disposeBag)
+
